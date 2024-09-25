@@ -11,6 +11,7 @@ namespace BattleArena
         private bool _gameOver = false;
 
         Character you;
+        Enemy hydra1;
 
         private int GetInput(string description, string option1, string option2)
         {
@@ -51,12 +52,13 @@ namespace BattleArena
 
         private void Start()
         {
-            int inputRecieved = 0;
+            
             you = new Character("You", 40, 12, 7);
-            Character hydra = new Character("Hydra", 60, 12, 6);
-            GetInput("You awake again (you don't know how many times it's been) in an enclosed chamber with a large, 6 headed hydra looming over you." +
-                "Its teeth are bared and it looks ready to rip you apart, but you are armed with a sword and shield and are wearing some plate armor." +
-                "Do you fight the hydra, or use the blade in your hand to give yourself a swift demise?", "Fight", "Commit suicide");
+            
+            Console.WriteLine(you.MaxHealth);
+           
+            
+            
             
 
         }

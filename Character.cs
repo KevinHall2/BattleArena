@@ -60,7 +60,11 @@ namespace BattleArena
             _defensePower = defensePower;
         }
 
-        public float Attack(Character other)
+        public Character() { }
+
+
+
+        public virtual float Attack(Character other)
         {
             float damage = MathF.Max(0, _attackPower - other.DefensePower);
             other.TakeDamage(damage);
@@ -81,9 +85,9 @@ namespace BattleArena
             Health += health;
         }
 
-        private void Die()
+        public virtual void Die()
         {
-            Console.WriteLine(Name + "has been slain.");
+            Console.WriteLine(Name + "have been slain.");
         }
     }
 }
