@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BattleArena
 {
-    internal class Character
+    internal abstract class Character
     {
         private string _name = "Character";
 
@@ -17,6 +17,8 @@ namespace BattleArena
         private float _attackPower = 1;
 
         private float _defensePower = 1;
+
+        private float _headsRemaining = 1;
 
 
         public string Name
@@ -46,6 +48,11 @@ namespace BattleArena
         public float DefensePower
         {
             get => _defensePower;
+        }
+
+        public float HeadsRemaining
+        {
+            get => _headsRemaining;
         }
 
         public Character(string name,
@@ -85,9 +92,6 @@ namespace BattleArena
             Health += health;
         }
 
-        public virtual void Die()
-        {
-            Console.WriteLine(Name + "have been slain.");
-        }
+        public abstract void Die();
     }
 }

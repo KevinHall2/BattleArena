@@ -9,9 +9,8 @@ namespace BattleArena
     internal class Game
     {
         private bool _gameOver = false;
-
-        Character you;
-        Enemy hydra1;
+        
+        
 
         private int GetInput(string description, string option1, string option2)
         {
@@ -52,12 +51,11 @@ namespace BattleArena
 
         private void Start()
         {
-            
-            you = new Character("You", 40, 12, 7);
-            
-            Console.WriteLine(you.MaxHealth);
-           
-            
+          Character[] EnemyArray = new Enemy[3];
+            EnemyArray[0] = new Enemy();
+            EnemyArray[1] = new Enemy();
+            EnemyArray[2] = new Enemy();
+            Console.WriteLine(EnemyArray[1].HeadsRemaining); 
             
             
 
