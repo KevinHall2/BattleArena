@@ -18,6 +18,7 @@ namespace BattleArena
 
         private float _defensePower = 1;
 
+        //variable and property that will be used to determine the hydra's power level; it decreases as the amount of heads decreases
         private float _headsRemaining = 1;
 
 
@@ -54,6 +55,7 @@ namespace BattleArena
             protected set => _defensePower = value;
         }
 
+        //variable and property that will be used to determine the hydra's power level; it decreases as the amount of heads decreases
         public float HeadsRemaining
         {
             get => _headsRemaining;
