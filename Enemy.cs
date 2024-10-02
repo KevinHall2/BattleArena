@@ -35,6 +35,16 @@ namespace BattleArena
             return damage;
         }
 
+        public override void TakeDamage(float damage)
+        {
+            MaxHealth -= damage;
+            Console.WriteLine("You dealt " + damage + " damage.");
+            if (MaxHealth == 0)
+            {
+                Die();
+            }
+        }
+
         public override void Die()
         {
             if (HeadsRemaining == 6)

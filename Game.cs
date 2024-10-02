@@ -12,7 +12,7 @@ namespace BattleArena
         
         
 
-        private int GetInput(string description, string option1, string option2)
+        private int BattleDecisionInput(string description, string option1, string option2)
         {
             ConsoleKeyInfo key;
 
@@ -20,8 +20,7 @@ namespace BattleArena
 
             while (inputRecieved != 1 && inputRecieved != 2)
             {
-                //prints out the two options, asks for player input, increments inputRecieved depending on the choice,
-                //or loops this while statement again if the input does not match one of the options
+
                 Console.Clear();
                 Console.WriteLine(description);
                 Console.WriteLine("1: ");
@@ -49,12 +48,19 @@ namespace BattleArena
             return inputRecieved;
         }
 
+        
+
         private void Start()
         {
+            Character Player = new Player();
           Character[] EnemyArray = new Enemy[3];
             EnemyArray[0] = new Enemy();
             EnemyArray[1] = new Enemy();
             EnemyArray[2] = new Enemy();
+
+
+
+
 
             
 

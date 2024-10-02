@@ -83,7 +83,7 @@ namespace BattleArena
             return damage;
         }
 
-        public void TakeDamage(float damage)
+        public virtual void TakeDamage(float damage)
         {
             _health -= damage;
             if (Health == 0)
