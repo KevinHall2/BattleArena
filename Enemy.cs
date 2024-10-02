@@ -10,26 +10,18 @@ namespace BattleArena
     internal class Enemy : Character
     {
 
-        private string _name;
-        private float _maxHealth;
-        private float _health;
-        private float _attackPower;
-        private float _defensePower;
-        private float _headsRemaining;
+
 
         public Enemy()
         {
-            _name = "6-Headed Hydra";
-            _maxHealth = 20;
-            _attackPower = 12;
-            _defensePower = 6;
-            _headsRemaining = 6;
+            Name = "6-Headed Hydra";
+            MaxHealth = 20;
+            AttackPower = 12;
+            DefensePower = 6;
+            HeadsRemaining = 6;
         }
 
-        public float HeadsRemaining
-        {
-            get => _headsRemaining;
-        }
+
       
 
 
@@ -38,7 +30,7 @@ namespace BattleArena
         {
             
             Console.WriteLine("The Hydra assails you with its heads.");
-            float damage = MathF.Max(0, _attackPower - other.DefensePower);
+            float damage = MathF.Max(0, AttackPower - other.DefensePower);
             other.TakeDamage(damage);
             return damage;
         }
@@ -48,7 +40,6 @@ namespace BattleArena
             if (HeadsRemaining == 6)
             {
               Console.WriteLine("You sever two of the six heads. Four remain.");
-                _attackPower -= 2;
             }
             else if (HeadsRemaining == 4)
             {

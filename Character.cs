@@ -24,17 +24,19 @@ namespace BattleArena
         public string Name
         {
             get => _name;
+            protected set => _name = value;
         }
 
         public float MaxHealth
         {
             get => _maxHealth;
+            protected set => _maxHealth = value;
         }
 
         public float Health
         {
             get => _health;
-            private set
+            protected set
             {
                 _health = Math.Clamp(value, 0, _maxHealth);
             }
@@ -43,16 +45,19 @@ namespace BattleArena
         public float AttackPower
         {
             get => _attackPower;
+            protected set => _attackPower = value;
         }
 
         public float DefensePower
         {
             get => _defensePower;
+            protected set => _defensePower = value;
         }
 
         public float HeadsRemaining
         {
             get => _headsRemaining;
+            protected set => _headsRemaining = value;
         }
 
         public Character(string name,

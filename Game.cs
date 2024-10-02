@@ -55,8 +55,7 @@ namespace BattleArena
             EnemyArray[0] = new Enemy();
             EnemyArray[1] = new Enemy();
             EnemyArray[2] = new Enemy();
-            Console.WriteLine(EnemyArray[1].HeadsRemaining); 
-            
+
             
 
         }
