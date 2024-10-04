@@ -17,8 +17,8 @@ namespace BattleArena
         private Character _player = new Player();
 
 
-        //function for decisions in a fight
-        private int BattleDecisionInput(string description, string option1, string option2)
+        //function for two choice decisions
+        private int DecisionInput(string description, string option1, string option2)
         {
             string input = "";
             int inputRecieved = 0;
@@ -87,21 +87,21 @@ namespace BattleArena
             //if statement that shows different enemy index health values based on the hydra heads remaining
             if (_enemyArray[0].HeadsRemaining == 6)
             {
-               Console.WriteLine("The Hydra's health: " + _enemyArray[0].Health + "/" + _enemyArray[0].MaxHealth);
+               Console.WriteLine("The Six-Headed Hydra's health: " + _enemyArray[0].Health + "/" + _enemyArray[0].MaxHealth);
                  
             }
             else if (_enemyArray[0].HeadsRemaining == 4)
             {
-               Console.WriteLine("The Hydra's health: " + _enemyArray[1].Health + "/" + _enemyArray[1].MaxHealth);
+               Console.WriteLine("The Four-Headed Hydra's health: " + _enemyArray[1].Health + "/" + _enemyArray[1].MaxHealth);
                
             }
             else if (_enemyArray[0].HeadsRemaining == 2)
             {
-               Console.WriteLine("The Hydra's health: " + _enemyArray[2].Health + "/" + _enemyArray[2].MaxHealth);
+               Console.WriteLine("The Two-Headed Hydra's health: " + _enemyArray[2].Health + "/" + _enemyArray[2].MaxHealth);
             }
 
-
-            int input = BattleDecisionInput("You and the Hydra slowly circle each other in a staredown. What do you do?", "Attack", "Recover");
+            //fight decision function
+            int input = DecisionInput("You and the Hydra slowly circle each other in a staredown. What do you do?", "Attack", "Recover");
             if (input == 1)
             {
                 _player.Attack(_enemyArray[0]);
@@ -110,12 +110,30 @@ namespace BattleArena
             {
                 _player.Heal(10);
             }
+            //regardless of decision, the Hydra retaliates
+            _enemyArray[0].Attack(_player);
+
+            //player death creating the game over and leading to the end function
+            if (_player.Health == 0)
+            {
+                _gameOver = true;
+            }
 
         }
 
         private void End()
         {
-
+            int input = DecisionInput("You have failed in your task to slay your enemy. Would you like to try again?", "Yes", "No");
+            if (input == 1)
+            {
+                _gameOver = false;
+                _player.ResetHealth();
+                Run();
+            }
+            else
+            {
+                GetStoryText("With none now remaining to stop the rampaging beast, the Hydra eliminates the rest of civilization....");
+            }
         }
 
 

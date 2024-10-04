@@ -10,6 +10,7 @@ namespace BattleArena
     {
         public Player()
         {
+            //player doesn't have an updated RemaniningHead variable since the player won't interact with that the same way the Hydra will
             Name = "You";
             MaxHealth = 40;
             Health = 40;
@@ -28,16 +29,19 @@ namespace BattleArena
         public override void Die()
         {
             Console.WriteLine("The Hydra rips you apart with its heads. You have been slain.");
+            Console.WriteLine("<<Press any key to continue.>>");
+            Console.ReadKey();
+            Console.Clear();
         }
 
         public override void TakeDamage(float damage)
         {
-            MaxHealth -= damage;
+            Health -= damage;
             Console.WriteLine("The Hydra deals " + damage + " damage to you.");
             Console.WriteLine("<<Press any key to continue.>>");
             Console.ReadKey();
             Console.Clear();
-            if (MaxHealth == 0)
+            if (Health == 0)
             {
                 Die();
             }
@@ -50,6 +54,11 @@ namespace BattleArena
             Console.WriteLine("<<Press any key to continue.>>");
             Console.ReadKey();
             Console.Clear();
+        }
+
+        public override void ResetHealth()
+        {
+            Health = MaxHealth;
         }
     }
 }

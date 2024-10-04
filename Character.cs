@@ -19,6 +19,7 @@ namespace BattleArena
         private float _defensePower = 1;
 
         //variable and property that will be used to determine the hydra's power level; it decreases as the amount of heads decreases
+        //it is only 1 right now due to this being the parent class version of the variable and property
         private float _headsRemaining = 1;
 
 
@@ -100,5 +101,7 @@ namespace BattleArena
         }
 
         public abstract void Die();
+
+        public abstract void ResetHealth();
     }
 }

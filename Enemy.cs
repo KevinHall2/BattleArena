@@ -18,7 +18,7 @@ namespace BattleArena
             Name = "6-Headed Hydra";
             MaxHealth = 20;
             Health = 20;
-            AttackPower = 12;
+            AttackPower = 15;
             DefensePower = 6;
             //the hydra starts with 6 heads
             HeadsRemaining = 6;
@@ -65,6 +65,12 @@ namespace BattleArena
                 Console.WriteLine("You sever the last two heads, slaying the beast");
             }
             
+        }
+
+        //the enemy health doesn't need to be reset since its array indexes are created in the Start function of Game
+        public override void ResetHealth()
+        {
+            throw new NotImplementedException();
         }
     }
 }
