@@ -110,8 +110,27 @@ namespace BattleArena
             {
                 _player.Heal(10);
             }
-            //regardless of decision, the Hydra retaliates
-            _enemyArray[0].Attack(_player);
+
+
+            //regardless of decision, the Hydra retaliates, but not when its hp is 0
+            //if its hp IS 0, it transfers over to the next index of the enemy array, which is technically the same hydra but with two less heads
+            if (_enemyArray[0].Health != 0)
+            {
+              _enemyArray[0].Attack(_player);
+            }
+            else if (_enemyArray[0].Health == 0)
+            {
+                _enemyArray[1].Attack(_player);
+            }
+            else if (_enemyArray[1].Health == 0)
+            {
+                _enemyArray[2].Attack(_player);
+            }
+            else if (_enemyArray[2].Health == 0)
+            {
+                _gameOver = true;
+            }
+
 
             //player death creating the game over and leading to the end function
             if (_player.Health == 0)
@@ -123,16 +142,35 @@ namespace BattleArena
 
         private void End()
         {
-            int input = DecisionInput("You have failed in your task to slay your enemy. Would you like to try again?", "Yes", "No");
-            if (input == 1)
+            if (_player.Health == 0)
             {
-                _gameOver = false;
-                _player.ResetHealth();
-                Run();
+                int input = DecisionInput("You have failed in your task to slay your enemy. Would you like to try again?", "Yes", "No");
+                if (input == 1)
+                {
+                  _gameOver = false;
+                  _player.ResetHealth();
+                  Run();
+                }
+                else if (input == 2)
+                {
+                  GetStoryText("With none now remaining to stop the rampaging beast, the Hydra eliminates the rest of civilization....");
+                }
             }
-            else
+            else if (_enemyArray[2].Health == 0)
             {
-                GetStoryText("With none now remaining to stop the rampaging beast, the Hydra eliminates the rest of civilization....");
+                GetStoryText("With all of the Hydra's heads severed, its body lies before you in a slump. The hunt is complete." +
+                    "You return to your homeland with your six trophies in tow, and celebrate the preservation of civilization.");
+                int input = DecisionInput("Would you like to play again?", "Yes", "No");
+                if (input == 1)
+                {
+                    _gameOver = false;
+                    _player.ResetHealth();
+                    Run();
+                }
+                else if (input == 2)
+                {
+                    GetStoryText("You are lauded as a historical hero, and spend the rest of your days in comfortable retirement.");
+                }
             }
         }
 

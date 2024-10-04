@@ -64,7 +64,8 @@ namespace BattleArena
             {
                 Console.WriteLine("You sever the last two heads, slaying the beast");
             }
-            
+            HeadsRemaining -= 2;
+            AttackPower -= 2;
         }
 
         //the enemy health doesn't need to be reset since its array indexes are created in the Start function of Game
