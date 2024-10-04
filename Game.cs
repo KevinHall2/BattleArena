@@ -104,11 +104,23 @@ namespace BattleArena
             int input = DecisionInput("You and the Hydra slowly circle each other in a staredown. What do you do?", "Attack", "Recover");
             if (input == 1)
             {
-                _player.Attack(_enemyArray[0]);
+                if (_enemyArray[0].Health != 0)
+                {
+                  _player.Attack(_enemyArray[0]);
+                }
+                else if (_enemyArray[0].Health == 0)
+                {
+                    _player.Attack(_enemyArray[1]);
+                }
+                else if (_enemyArray[1].Health == 0)
+                {
+                    _player.Attack(_enemyArray[2]);
+                }
+                
             }
             else if (input == 2)
             {
-                _player.Heal(10);
+                _player.Heal(16);
             }
 
 
