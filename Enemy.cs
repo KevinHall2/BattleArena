@@ -14,12 +14,13 @@ namespace BattleArena
 
         public Enemy()
         {
-            //Enemy lacks the Health variable and property compared to Character and Player since the hydra isn't going to heal 
+             
             Name = "6-Headed Hydra";
             MaxHealth = 20;
+            Health = 20;
             AttackPower = 12;
             DefensePower = 6;
-            //this hydra starts with 6 heads
+            //the hydra starts with 6 heads
             HeadsRemaining = 6;
         }
 
@@ -38,9 +39,12 @@ namespace BattleArena
 
         public override void TakeDamage(float damage)
         {
-            MaxHealth -= damage;
+            Health -= damage;
             Console.WriteLine("You dealt " + damage + " damage.");
-            if (MaxHealth == 0)
+            Console.WriteLine("<<Press any key to continue.>>");
+            Console.ReadKey();
+            Console.Clear();
+            if (Health == 0)
             {
                 Die();
             }

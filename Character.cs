@@ -94,7 +94,7 @@ namespace BattleArena
             }
         }
 
-        public void Heal(float health)
+        public virtual void Heal(float health)
         {
             Health += health;
         }
