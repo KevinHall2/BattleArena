@@ -95,7 +95,7 @@ namespace BattleArena
                Console.WriteLine("The Four-Headed Hydra's health: " + _enemyArray[1].Health + "/" + _enemyArray[1].MaxHealth);
                
             }
-            else if (_enemyArray[0].HeadsRemaining == 2)
+            else if (_enemyArray[1].HeadsRemaining == 2)
             {
                Console.WriteLine("The Two-Headed Hydra's health: " + _enemyArray[2].Health + "/" + _enemyArray[2].MaxHealth);
             }
@@ -108,7 +108,7 @@ namespace BattleArena
                 {
                   _player.Attack(_enemyArray[0]);
                 }
-                else if (_enemyArray[0].Health == 0)
+                else if (_enemyArray[0].HeadsRemaining == 4)
                 {
                     _player.Attack(_enemyArray[1]);
                 }
@@ -130,7 +130,7 @@ namespace BattleArena
             {
               _enemyArray[0].Attack(_player);
             }
-            else if (_enemyArray[0].Health == 0)
+            else if (_enemyArray[0].HeadsRemaining != 6)
             {
                 _enemyArray[1].Attack(_player);
             }

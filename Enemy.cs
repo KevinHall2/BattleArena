@@ -55,23 +55,31 @@ namespace BattleArena
             if (HeadsRemaining == 6)
             {
               Console.WriteLine("You sever two of the six heads. Four remain.");
+                SeverHeads();
             }
             else if (HeadsRemaining == 4)
             {
                 Console.WriteLine("You sever two of the four heads. Two remain.");
+                SeverHeads();
             }
             else if (HeadsRemaining == 2)
             {
                 Console.WriteLine("You sever the last two heads, slaying the beast");
             }
-            HeadsRemaining -= 2;
-            AttackPower -= 2;
         }
 
         //the enemy health doesn't need to be reset since its array indexes are created in the Start function of Game
         public override void ResetHealth()
         {
             throw new NotImplementedException();
+        }
+
+
+        //function for removing hydra heads
+        public void SeverHeads()
+        {
+            HeadsRemaining -= 2;
+            AttackPower -= 2;
         }
     }
 }
