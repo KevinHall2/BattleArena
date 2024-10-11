@@ -90,12 +90,12 @@ namespace BattleArena
                Console.WriteLine("The Six-Headed Hydra's health: " + _enemyArray[0].Health + "/" + _enemyArray[0].MaxHealth);
                  
             }
-            else if (_enemyArray[0].HeadsRemaining == 4)
+            else if (_enemyArray[1].HeadsRemaining == 4)
             {
                Console.WriteLine("The Four-Headed Hydra's health: " + _enemyArray[1].Health + "/" + _enemyArray[1].MaxHealth);
                
             }
-            else if (_enemyArray[1].HeadsRemaining == 2)
+            else if (_enemyArray[2].HeadsRemaining == 2)
             {
                Console.WriteLine("The Two-Headed Hydra's health: " + _enemyArray[2].Health + "/" + _enemyArray[2].MaxHealth);
             }
@@ -104,11 +104,11 @@ namespace BattleArena
             int input = DecisionInput("You and the Hydra slowly circle each other in a staredown. What do you do?", "Attack", "Recover");
             if (input == 1)
             {
-                if (_enemyArray[0].Health != 0)
+                if (_enemyArray[0].Health != 0 && _enemyArray[1].Health == _enemyArray[1].MaxHealth)
                 {
                   _player.Attack(_enemyArray[0]);
                 }
-                else if (_enemyArray[0].HeadsRemaining == 4)
+                else if (_enemyArray[0].Health == 0 && _enemyArray[1].Health != 0 && _enemyArray[2].Health == _enemyArray[2].MaxHealth)
                 {
                     _player.Attack(_enemyArray[1]);
                 }
@@ -123,6 +123,9 @@ namespace BattleArena
                 _player.Heal(16);
             }
 
+
+            //determines heads to sever of indexes of the hydra array after damage is done
+            
 
             //regardless of decision, the Hydra retaliates, but not when its hp is 0
             //if its hp IS 0, it transfers over to the next index of the enemy array, which is technically the same hydra but with two less heads
