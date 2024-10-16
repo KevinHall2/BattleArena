@@ -90,7 +90,7 @@ namespace BattleArena
                Console.WriteLine("The Six-Headed Hydra's health: " + _enemyArray[0].Health + "/" + _enemyArray[0].MaxHealth);
                  
             }
-            else if (_enemyArray[1].HeadsRemaining == 4)
+            else if (_enemyArray[0].HeadsRemaining == 4)
             {
                Console.WriteLine("The Four-Headed Hydra's health: " + _enemyArray[1].Health + "/" + _enemyArray[1].MaxHealth);
                

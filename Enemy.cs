@@ -60,7 +60,7 @@ namespace BattleArena
             else if (HeadsRemaining == 4)
             {
                 Console.WriteLine("You sever two of the four heads. Two remain.");
-                SeverHeads();
+                
             }
             else if (HeadsRemaining == 2)
             {
